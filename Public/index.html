@@ -8,7 +8,56 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Hollys Project </h1>
-    <p> Learning to code </p>
+<!-- Nav bar, sticky at the top of page. Buttons to navigate page and short cut to add an item -->
+<div class="bluebanner">
+<div class="topnav">
+        <button> Information </button>
+        <button> ADD ITEM + </button>
+        <button> Results </button>
+</div>
+</div>
+<!-- Landing screen emphasising logo and title using visual design techniques like 'brand imprinting' and information architecture-->
+<h2> Welcome to </h2>
+<h1> Athlete X </h1>
+<div class="container">
+<img src="./images/athlete X logo dark.png" alt=" Athlete X Logo">
+</div>
+<div id="taketraining">
+<p> Take your Training to the</p>
+</div>
+<div class="bluebanner">
+<h2> Next Level</h2>
+</div>
+<br>
+<!-- Semantic HTML, the use of article to avoid 'div soup' making the code easier to read and simplify css with less class and id selectors-->
+<!-- Website and brand information/purpose-->
+<article>
+    <h3> What is Athlete X </h3>
+        <p>Athlete X is for our athletic experts. If you are an athlete of any kind and find yourself training multiple times a week, hitting the gym or competing on multiple teams, this app is great for you!</p>
+        <p>Athlete X is designed to help you keep track of your training on a more elite level. When you participate in a lot of physical activity at a high level it can be all encompassing like a full time job. We are looking to help you find balance and manage yout training load, logging how you feel emotiojnally, physically, and mentally post each session.</p>
+    <h3> How Athlete X will take you to the next level!</h3>
+        <p> So why is this worth your time? A summary of your logged activities can be emailed to your trainers, coaches, nutritionists, doctors and whomever else, so that they too can understand what your training load looked like that week. In doing so you can avoid things like burnout, manage injuries, look after your mental wellbeing, and cut back on sessions that don't bring you joy.</p>
+        <p> We are goinh deeper than just logging the days that you train, Athlete X will help you refelct and communicate to your coaches, how you are tracking physically and mentally, making high level competition more enjoyable and sustainable.</p>
+</article>
+<!-- Small logging information info and second addition button-->
+<section> 
+    <h2>Logging an Activity</h2>
+    <p>Select the <strong>'Add item'</strong> button located below or at the top of the page and fill in the details of your training session <strong> after </strong> you have completed it by following the prompts, your session will then be traccked and available for veiwing at the bottom of the page.</p>
+    <div class="bluebanner">
+        <button> ADD ITEM + </button>
+    </div>
+</section>
+<!-- Results instruction-->
+<section>
+    <div class="bluebanner">
+        <h4> Results </h4>
+        <img src="./images/athlete X logo dark.png" alt=" Athlete X Logo">
+    </div>
+        <p id="resultsinfo"> <u>Select</u> for more information on eachitem logged. <br> <u>Scroll</u> to view past sessions.</p>
+<!-- Results Carousel -->
+        <div id="results">
+        <p>Basketball training</p>
+    </div>
+</section>
 </body>
 </html>

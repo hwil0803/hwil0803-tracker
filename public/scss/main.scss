@@ -1,1 +1,64 @@
+body     {
+    max-width: 100%;
+    font-family: verdana, arial, sans-serif;
+    margin: auto 5%;
+    padding: 0;
+    background-color: #EDF6F9;
+    border:0px;
+     }
+
+.container {
+    text-align: center;
+}
+
+.container img {
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: auto;
+}
+
+.bluebanner {
+    width: 100vw;
+    height: 10VW;
+    background-color: rgb(212, 227, 232);
+    justify-content: center;
+    display:flex;
+}
+
+.topnav button{
+    position: sticky;
+    background-color: rgb(235, 132, 98);
+    width:25vw;
+    height: 70%;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 2vw;
+    color: #FFFF;
+    font-size: 3vw; 
+}
+
+h1 {
+    font-size: 10vw;
+    text-align: center;
+}
+
+h2 {
+    text-align:center;
+}
+
+.topnav {
+    position: sticky;
+    top: 8vw;
+    display:flex;
+    justify-content:center;
+}
+
+
+
+#taketraining {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
