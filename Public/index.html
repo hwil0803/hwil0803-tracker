@@ -62,22 +62,81 @@
         <p>Basketball training</p>
     </div>
 </section>
+<!-- Start of Form -->
 <form>
     <h2> Add Item </h2>
+<!-- User feedback Progress Bar -->
     <div class="progressbar">
         <h4>Type Time Intensity Physical Psychological</h4>
-        <p>Input <strong>name</strong> of the type of activity just completed:</p>
-        <input type="text" name="type" placeholder="Type..." onfocus="clearText()" onblur="restoreText()"/>
-        <p>Input the <strong>category</strong> of the acrtivity just competed:</p>
-        <select class="dropdown" name="type" />
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-            <option value="option5">Option 5</option>
-            <option value="option6">Option 6</option>
-        </select>
     </div>
+<!-- Input for Type - Page 1-->
+    <h5>Type</h5>
+        <p>Input <strong>name</strong> of the type of activity just completed:</p>
+            <input type="text" name="type" placeholder="Type..." onfocus="clearText()" onblur="restoreText()"/>
+        <p>Input the <strong>category</strong> of the acrtivity just competed:</p>
+            <select class="dropdown" name="type" />
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+                <option value="option5">Option 5</option>
+                <option value="option6">Option 6</option>
+            </select>   
+<!-- Input for Time - Page 2 -->
+    <h5>Time and Duration</h5>
+        <p>Start Time:</p>
+        <div class="time-input-container"> <!-- Chat GPT -->
+            <input type="time" id="myTimeInput" class="time-input">
+        </div>
+        <p>End Time:</p>
+        <div class="time-input-container"> <!-- Chat GPT -->
+            <input type="time" id="myTimeInput" class="time-input">
+        </div>
+<!-- Input for Intensity - Page 3 -->
+    <h5>Intensity</h5>
+        <p> Rate the intensity of the session on a scale on 0-10, with 0 being very easy and a 10 being extremely difficult</p>
+            <label for="scale">Scale: </label> 
+            <br>
+            <input type="range" id="scale" name="scale" min="0" max="10">
+<!-- Input for Physical Feedback -->
+    <h5>Physical Feedback</h5>
+        <p>Rate how fatigued you feel physically after the session, 0 being not fatigued at all and 10 being extremely fatigued.</p>
+            <label for="scale">Scale: </label> 
+            <br>
+            <input type="range" id="scale" name="scale" min="0" max="10">
+        <p>If there are any injurys or sore muscels input in the text feil below e.g. rolled left ankle </p>
+        <input type="text" name="type" placeholder="Type..." onfocus="clearText()" onblur="restoreText()"/>
+<!-- Input for Psychologicl Feedback-->
+    <h5>Psychological Reflection</h5>
+        <p>Rate how are you are mentally feeling after the session on a scale of 0 - 10, 0 being extremely poor and 10 being excellent</p>
+            <label for="scale">Scale: </label> 
+            <br>
+            <input type="range" id="scale" name="scale" min="0" max="10">
+        <p><u>Select</u> the checkboxes which best describes how you are feeling:</p>
+    <div id="emotionCheck">
+        <label for="happy">Happy</label>
+        <input type="checkbox" id="happy" name="happy" value="happy"/>
+        <label for="sad">Sad</label>
+        <input type="checkbox" id="sad" name="sad" value="sad"/>
+        <label for="excited">Excited</label>
+        <input type="checkbox" id="excited" name="excited" value="excited"/>
+        <label for="energised">Energised</label>
+        <input type="checkbox" id="energised" name="energised" value="energised"/>
+        <label for="tired">Tired</label>
+        <input type="checkbox" id="tired" name="tired" value="tired"/>
+        <label for="irritable">Irritable</label>
+        <input type="checkbox" id="irritable" name="irritable" value="irritable"/>
+        <label for="type">Other</label>
+        <input type="text" name="type" placeholder="Type..." onfocus="clearText()" onblur="restoreText()"/>
+    </div>
+    <div id="motivatio">
+        <h5>Motivation</h5>
+        <p>Rate how motivated you are to participate in your next training session from 0 - 10, 0 being not at all and 10 being extremely motivated</p>
+        <label for="scale">Scale: </label> 
+        <br>
+        <input type="range" id="scale" name="scale" min="0" max="10">
+    </div>
+    <button id="submit"> Submit</button>
 </form>
 </body>
 </html>
