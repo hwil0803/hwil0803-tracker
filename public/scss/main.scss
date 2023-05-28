@@ -123,3 +123,24 @@ form {
     box-shadow: 5px 5px 10px #888888;
 }
 
+.activityName {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .taskBox {
+    /* Existing styles */
+  }
+  
+  .taskBox .expanded {
+    /* Existing styles */
+  }
+  
+  .taskBox.expanded .taskDetails {
+    display: block;
+  }
+  
+  .taskBox .taskDetails {
+    display: none;
+    /* Additional styles for the task details */
+  }

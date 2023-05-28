@@ -47,9 +47,16 @@ function getSelectedEmotions() {
 
 function displayTask(task) {
     let item = document.createElement('li');
-    item.innerHTML = `<p> ${task.textType} </p>`;
+    item.innerHTML = `<div class="taskBox"><p class="activityName">${task.name}</p><div class="taskDetails"><p>${task.category}</p><p>${task.startTime}</p><p>${task.endTime}</p><p>${task.intensity}</p><p>${task.physicalFeedback.physScale}</p><p>${task.physicalFeedback.physType}</p><p>${task.psychologicalFeedback.psyScale}</p><p>${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p><p>${task.psychologicalFeedback.psyType}</p><p>${task.motivation}</p></div></div>`;
     outputList.appendChild(item);
-    form.reset();
+  
+    const taskBox = item.querySelector('.taskBox');
+    const activityName = item.querySelector('.activityName');
+    const taskDetails = item.querySelector('.taskDetails');
+  
+    taskBox.addEventListener('click', function() {
+      taskBox.classList.toggle('expanded');
+    });
   }
 
 //Array created for taskList
@@ -72,23 +79,17 @@ function addTask(name, category, startTime, endTime, intensity, physicalFeedback
   displayTask(task);
 }
 
-function displayTask(task) {
-    let item = document.createElement('li');
-    item.innerHTML = `<p>${task.name}</p><p>${task.category}</p><p>${task.startTime}</p><p>${task.endTime}</p><p>${task.intensity}</p><p>${task.physicalFeedback.physScale}</p><p>${task.physicalFeedback.physType}</p><p>${task.psychologicalFeedback.psyScale}</p><p>${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p><p>${task.psychologicalFeedback.psyType}</p><p>${task.motivation}</p>`;
-    outputList.appendChild(item);
-  }
-  
-  function renderTasks() {
-    outputList.innerHTML = ''; // Clear the previous list
-  
+function renderTasks() {
+    outputList.innerHTML = '';
+    
     taskList.forEach(function(task) {
       displayTask(task);
     });
   }
+  
 
-// Sample task for testing
+  // Sample task for testing
 addTask("Basketball Training", "Sports", "09:00", "11:00", 8, { physScale: 7, physType: "Sore muscles" }, { psyScale: 9, psyCheckboxes: ["Energized"], psyType: "" }, 10);
 
 console.log(taskList);
 renderTasks();
-
