@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<>, initial-scale=1.0">
     <link rel="stylesheet" href="scss/main.scss"/>
+    <link rel="stylesheet" href="scss/style.css"/>
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
 <div class="bluebanner">
 
         <button> Information </button>
-        <button> ADD ITEM + </button>
+        <button data-open-modal> ADD ITEM + </button>
         <button> Results </button>
 </div>
 </nav>
@@ -47,12 +48,17 @@
     <h2>Logging an Activity</h2>
     <p>Select the <strong>'Add item'</strong> button located below or at the top of the page and fill in the details of your training session <strong> after </strong> you have completed it by following the prompts, your session will then be traccked and available for veiwing at the bottom of the page.</p>
     <div class="bluebanner">
-        <button> ADD ITEM + </button>
+        <button data-open-modal> ADD ITEM + </button>
     </div>
 </section>
 <!-- Results instruction-->
 <section>
 <br> 
+
+
+
+
+
     <div class="bluebanner">
         <h4> Results </h4>
         <img src="./images/athlete X logo dark.png" alt=" Athlete X Logo">
@@ -63,15 +69,19 @@
         <p>Basketball training</p>
     </div>
 </section>
-<!-- * Start of Form * -->
-<form class="inputForm" id="inputForm">
-    <h2> Add Item </h2>
-<!-- User feedback Progress Bar -->
-    <div class="progressbar">
+
+<div data-overlay class="overlay"></div>
+
+<div data-modal class="modal">
+  <div>
+    <h2>Add Item</h2>
+    <form class="inputForm" id="inputForm">
+      <!-- Start of Form -->
+      <!-- User feedback Progress Bar -->
+      <div class="progressbar">
         <h4>Type Time Intensity Physical Psychological</h4>
-    </div>
-<!-- Input for Type - Page 1-->
-    <h5>Type</h5>
+      </div>
+<h5>Type</h5>
         <p>Input <strong>name</strong> of the type of activity just completed:</p>
             <input type="text" name="textType" required="true" placeholder="Type..." onfocus="clearText()" onblur="restoreText()"/>
         <p>Input the <strong>category</strong> of the acrtivity just competed:</p>
@@ -136,11 +146,14 @@
         <label for="scale">Scale: </label> 
         <br>
         <input type="range" class="scale" name="motivScale" required="true" min="0" max="10">
-    </div>
-    <div class="submitButton" id="submitBtn">
+      <!-- Rest of your form code here -->
+      <div class="submitButton" id="submitBtn">
         <input type="submit" />
-    </div>
-</form>
+      </div>
+    </form>
+    <button data-close-modal>Close</button>
+  </div>
+</div>
 <section class="logged">
 <h2>Tasks</h2>
   <ul id="outputList"></ul>

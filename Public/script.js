@@ -1,3 +1,35 @@
+//import A11yDialog from 'a11y-dialog'
+
+//overlay code 
+//var dialogEl = document.getElementById('my-dialog')
+//var dialog = new A11yDialog(dialogEl)
+
+//dialog.on('show', function (dialogEl,event) {
+  //console.log(dialogEl)
+  //console.log(event)
+//})
+
+const openButtons = document.querySelectorAll("[data-open-modal]");
+const closeButton = document.querySelector("[data-close-modal]");
+const modal = document.querySelector("[data-modal]");
+const overlay = document.querySelector("[data-overlay]");
+
+openButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    modal.classList.add("open");
+    overlay.classList.add("open");
+  });
+});
+
+closeButton.addEventListener("click", () => {
+  modal.classList.remove("open");
+  overlay.classList.remove("open");
+});
+
+
+
+
+
 const form = document.getElementById('inputForm');
 const outputList = document.getElementById('outputList');
 

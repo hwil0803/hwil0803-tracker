@@ -7,6 +7,38 @@ body     {
     border:0px;
      }
 
+     .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 25, 28, 0.5);
+        z-index: 9;
+        overflow: auto; /* Enable scrolling on the overlay */
+      }
+      
+      .modal.open,
+      .overlay.open {
+        display: block;
+        overflow: auto; /* Enable scrolling on the modal and overlay when open */
+      }
+      
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(253, 244, 241);
+        padding: 5%;
+        margin: 0 auto; /* Center horizontally */
+        max-width: 80%; /* Set maximum width */
+        max-height: 80vh; /* Limit the modal height to 80% of viewport height */
+        overflow: auto; /* Enable scrolling inside the modal */
+        border-radius: 5vw;
+        box-shadow: 5px 5px 10px #888888;
+        z-index: 10;
+      }
+
 .container {
     text-align: center;
 }
@@ -115,13 +147,8 @@ section p {
     margin: 5%;
 }
 
-form {
-    padding:5%;
-    background-color: rgb(253, 244, 241);
-    margin: 5%;
-    border-radius: 5vw;
-    box-shadow: 5px 5px 10px #888888;
-}
+
+
 
 .activityName {
     font-weight: bold;
