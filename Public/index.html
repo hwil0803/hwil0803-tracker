@@ -12,10 +12,9 @@
 <!-- Nav bar, sticky at the top of page. Buttons to navigate page and short cut to add an item -->
 <nav class="topnav">
 <div class="bluebanner">
-
-        <button> Information </button>
+        <button onclick="window.location.href='#inforArticle';"> Information </button>
         <button data-open-modal> ADD ITEM + </button>
-        <button> Results </button>
+        <button onclick="window.location.href='#logged';"> Results </button>
 </div>
 </nav>
 <!-- Landing screen emphasising logo and title using visual design techniques like 'brand imprinting' and information architecture-->
@@ -30,7 +29,7 @@
 <p> Take your Training to the</p>
 </div>
 <div class="bluebanner">
-<h2> Next Level</h2>
+<h2 id="inforArticle"> Next Level</h2>
 </div>
 <br>
 <!-- Semantic HTML, the use of article to avoid 'div soup' making the code easier to read and simplify css with less class and id selectors-->
@@ -44,7 +43,7 @@
         <p> We are goinh deeper than just logging the days that you train, Athlete X will help you refelct and communicate to your coaches, how you are tracking physically and mentally, making high level competition more enjoyable and sustainable.</p>
 </article>
 <!-- Small logging information info and second addition button-->
-<section> 
+<section id="logging"> 
     <h2>Logging an Activity</h2>
     <p>Select the <strong>'Add item'</strong> button located below or at the top of the page and fill in the details of your training session <strong> after </strong> you have completed it by following the prompts, your session will then be traccked and available for veiwing at the bottom of the page.</p>
     <div class="bluebanner">
@@ -55,24 +54,19 @@
 <section>
 <br> 
 
-
-
-
-
     <div class="bluebanner">
         <h4> Results </h4>
         <img src="./images/athlete X logo dark.png" alt=" Athlete X Logo">
     </div>
         <p id="resultsinfo"> <u>Select</u> for more information on eachitem logged. <br> <u>Scroll</u> to view past sessions.</p>
-<!-- Results Carousel -->
-        <div id="results">
-        <p>Basketball training</p>
-    </div>
+
+
 </section>
 
 <div data-overlay class="overlay"></div>
 
 <div data-modal class="modal">
+
   <div>
     <h2>Add Item</h2>
     <form class="inputForm" id="inputForm">
@@ -146,7 +140,6 @@
         <label for="scale">Scale: </label> 
         <br>
         <input type="range" class="scale" name="motivScale" required="true" min="0" max="10">
-      <!-- Rest of your form code here -->
       <div class="submitButton" id="submitBtn">
         <input type="submit" />
       </div>
@@ -154,12 +147,15 @@
     <button data-close-modal>Close</button>
   </div>
 </div>
-<section class="logged">
+<!-- Results Carousel -->
 <h2>Tasks</h2>
+
+<section class="logged" id="logged">
   <ul id="outputList"></ul>
   <script src="script.js"></script>
   </script>
 </section>
+
 <script src="script.js"></script>
 </body>
 </html>

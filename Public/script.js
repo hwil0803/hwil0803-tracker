@@ -1,35 +1,27 @@
-//import A11yDialog from 'a11y-dialog'
 
-//overlay code 
-//var dialogEl = document.getElementById('my-dialog')
-//var dialog = new A11yDialog(dialogEl)
 
-//dialog.on('show', function (dialogEl,event) {
-  //console.log(dialogEl)
-  //console.log(event)
-//})
-
-const openButtons = document.querySelectorAll("[data-open-modal]");
+//Modal youtube video suggested on canvas used as basic outline for this pop up, expanded on the suit this webpage
+// modal and overlay variables 
+const addButtons = document.querySelectorAll("[data-open-modal]");
 const closeButton = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
 const overlay = document.querySelector("[data-overlay]");
 
-openButtons.forEach((button) => {
+//add button, for opening the modal/pop up - used for the form 
+addButtons.forEach((button) => {
   button.addEventListener("click", () => {
     modal.classList.add("open");
     overlay.classList.add("open");
   });
 });
 
+//close button, for closing the modal/pop-up - used for the form 
 closeButton.addEventListener("click", () => {
   modal.classList.remove("open");
   overlay.classList.remove("open");
 });
 
-
-
-
-
+//Based off week 4 tutorial - JS Objects - event listening and handling 
 const form = document.getElementById('inputForm');
 const outputList = document.getElementById('outputList');
 
@@ -59,9 +51,10 @@ form.addEventListener('submit', function(event) {
   renderTasks();
   form.reset();
 
-  //Test log check local storage is working 
-  console.log(taskList);
+  //Test log check is working 
+  //console.log(taskList);
 });
+
 
 // Function to get the selected emotions from checkboxes
 function getSelectedEmotions() {
@@ -77,15 +70,36 @@ function getSelectedEmotions() {
   return selectedEmotions;
 }
 
+// Function, when task is created appending it to the HTML so it appears on the webpage 
+
 function displayTask(task) {
     let item = document.createElement('li');
     item.innerHTML = `<div class="taskBox"><p class="activityName">${task.name}</p><div class="taskDetails"><p>${task.category}</p><p>${task.startTime}</p><p>${task.endTime}</p><p>${task.intensity}</p><p>${task.physicalFeedback.physScale}</p><p>${task.physicalFeedback.physType}</p><p>${task.psychologicalFeedback.psyScale}</p><p>${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p><p>${task.psychologicalFeedback.psyType}</p><p>${task.motivation}</p></div></div>`;
     outputList.appendChild(item);
+
+//Function Delete button based off week 4 scrimba tutorial 
+
+    let delButton = document.createElement('button');
+    let delButtonText = document.createTextNode('Delete');
+    delButton.appendChild(delButtonText);
+    item.appendChild(delButton);
+
+    delButton.addEventListener('click', function(event){
+      item.remove();
+      taskList.forEach(function(taskArrayElement, taskArrayIndex){
+        if (taskArrayElement.id == item.getAttribute('data-id')) {
+          taskList.splice(taskArrayIndex, 1)
+        }
+      })
+      console.log(taskList);
+    })
   
-    const taskBox = item.querySelector('.taskBox');
+// create varibable taskbox, submitted item expands to display more information 
+    const taskBox = item.querySelector('.taskBox'); 
     const activityName = item.querySelector('.activityName');
     const taskDetails = item.querySelector('.taskDetails');
   
+// Event listener, when taskbox is clicked on it expands to show the rest of the data
     taskBox.addEventListener('click', function() {
       taskBox.classList.toggle('expanded');
     });
@@ -123,5 +137,6 @@ function renderTasks() {
   // Sample task for testing
 addTask("Basketball Training", "Sports", "09:00", "11:00", 8, { physScale: 7, physType: "Sore muscles" }, { psyScale: 9, psyCheckboxes: ["Energized"], psyType: "" }, 10);
 
+//Confirmation taskList is running successfully in console 
 console.log(taskList);
 renderTasks();

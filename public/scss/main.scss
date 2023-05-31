@@ -99,9 +99,23 @@ h2 {
 
 h3{
     color: rgb(231, 136, 130);
-    font-size: 5vw;
+    font-size: 7vw;
 }
 
+.bluebanner #h4banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h4{
+    margin-top: 2vw;
+    text-align:center;
+    font-size:5vw;
+    color: rgb(231, 136, 130); 
+    -webkit-text-stroke: 0.3vw #006D77; 
+    vertical-align: middle;
+}
 
 .topnav {
     position: sticky;
@@ -110,7 +124,16 @@ h3{
     justify-content:center;
 }
 
+#logging p {
+    padding-top: 0;
+    padding-bottom: 5vw;
+}
 
+p#resultsinfo {
+    text-align: center;
+    padding: 2vw;
+    margin: 2vw;
+}
 
 #taketraining {
     display: flex;
@@ -148,16 +171,40 @@ section p {
 }
 
 
+.logged li {
+    display: flex;
+    align-items:flex-start;
+  }
 
+  ul {
+    align-content: center;
+  }
+
+.logged{
+    border: 1vw solid  #006D77;
+    background-color: #EDF6F9;
+    border-radius: 8vw;
+    padding:5vw;
+    margin:5vw;
+}
 
 .activityName {
     font-weight: bold;
     margin-bottom: 5px;
   }
   
-  .taskBox {
-    /* Existing styles */
+  li{
+  border: 0.5vw solid #006D77;
+  border-radius: 5vw;
+  background-color:rgb(253, 244, 241);
+  margin: 1vw;
   }
+
+  div.taskBox {
+    /* Existing styles */
+    padding: 2vw;
+  }
+  
   
   .taskBox .expanded {
     /* Existing styles */
@@ -165,9 +212,12 @@ section p {
   
   .taskBox.expanded .taskDetails {
     display: block;
+ 
   }
   
   .taskBox .taskDetails {
     display: none;
     /* Additional styles for the task details */
   }
+
+  
