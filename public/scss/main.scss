@@ -220,4 +220,25 @@ section p {
     /* Additional styles for the task details */
   }
 
+  .progressbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10vw;
+    background-color: rgb(224, 140, 94);
+    width: 100%; /* Adjust the width as needed */
+    height: auto;
+    margin-left: 10px; 
+  }
   
+  div.progressbar h4 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 1vw;
+    -webkit-text-stroke: 0 #006D77;
+    font-size: 2vw;
+    white-space: nowrap;
+    color: black;
+
+  }

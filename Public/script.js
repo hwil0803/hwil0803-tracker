@@ -29,6 +29,7 @@ const outputList = document.getElementById('outputList');
 form.addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent defult form submission behaviour
 
+
 //fetching the values when event listener is triggered
   addTask(
     form.elements.textType.value,
@@ -53,7 +54,35 @@ form.addEventListener('submit', function(event) {
 
   //Test log check is working 
   //console.log(taskList);
+
+
+
+//TRYING TO GET ITEMS TO ADD TO LOCAL STORAGE!!! HAVING ISSUES GETTING NEW ITEMS IN LOCAL STORAGE 
+  
+//Checking 
+  let submitted = JSON.parse(localStorage.getItem('submitted'));
+  if (submitted == null) {
+//Set a new value for submitted in Local Storage 
+  submitted = [] //THIS INPUT PARAMETRE MAY BE WRONG FOR THIS 
+  localStorage.setItem('submitted', JSON.stringify(submitted))
+} else {
+  console.log(JSON.parse(localStorage.getItem('submitted')))
+}
+//Check to see if item already exists in local storage 
+  if (submitted.find(element => element.name === addTask.name && element.category === addTask.category && element.startTime === addTask.startTime && element.endTime === addTask.endTime && element.intensity === addTask.intensity && element.physicalFeedback === addTask.physicalFeedback && element.psychologicalFeedback === addTask.psychologicalFeedback && element.motivation === addTask.motivation)){
+      updateAdded();
+  }
 });
+
+//RETREIVING DATA FROM LOCAL STORAGE 
+var addTaskInput = localStorage.getItem('submitted');
+
+if (submitted !="undefined" || submitted != "null"){
+  document.getElementById
+} else {
+  
+}
+
 
 
 // Function to get the selected emotions from checkboxes
@@ -74,7 +103,24 @@ function getSelectedEmotions() {
 
 function displayTask(task) {
     let item = document.createElement('li');
-    item.innerHTML = `<div class="taskBox"><p class="activityName">${task.name}</p><div class="taskDetails"><p>${task.category}</p><p>${task.startTime}</p><p>${task.endTime}</p><p>${task.intensity}</p><p>${task.physicalFeedback.physScale}</p><p>${task.physicalFeedback.physType}</p><p>${task.psychologicalFeedback.psyScale}</p><p>${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p><p>${task.psychologicalFeedback.psyType}</p><p>${task.motivation}</p></div></div>`;
+    item.innerHTML = `
+    <div class="taskBox">
+      <p class="activityName"> ${task.name}</p>
+    <div class="taskDetails">
+      <p> Category: ${task.category}</p>
+      <p> Id: ${task.id}</p>
+      <p> Date: ${task.date}</p>
+      <p> Start Time: ${task.startTime}</p>
+      <p> End Time: ${task.endTime}</p>
+      <p> Intensity: ${task.intensity}</p>
+      <p> Physical Rating: ${task.physicalFeedback.physScale}</p>
+      <p> Physical Comment: ${task.physicalFeedback.physType}</p>
+      <p> Psychological Scale:${task.psychologicalFeedback.psyScale}</p>
+      <p> Psychological Emotions:${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p>
+      <p> Other:${task.psychologicalFeedback.psyType}</p>
+      <p> Motivation: ${task.motivation}</p>
+      </div>
+      </div>`;
     outputList.appendChild(item);
 
 //Function Delete button based off week 4 scrimba tutorial 
@@ -92,7 +138,7 @@ function displayTask(task) {
         }
       })
       console.log(taskList);
-    })
+    });
   
 // create varibable taskbox, submitted item expands to display more information 
     const taskBox = item.querySelector('.taskBox'); 
@@ -113,6 +159,8 @@ function addTask(name, category, startTime, endTime, intensity, physicalFeedback
   let task = {
     name,
     category,
+    id: Date.now(),
+    date: new Date().toISOString(),
     startTime,
     endTime,
     intensity,
