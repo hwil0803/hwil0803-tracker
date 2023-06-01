@@ -124,6 +124,7 @@ function displayTask(task) {
     }
   });
 
+  //Modal Functionality 
   const taskBox = item.querySelector('.taskBox');
   const activityName = item.querySelector('.activityName');
   const taskDetails = item.querySelector('.taskDetails');
