@@ -1,13 +1,10 @@
-
-
-//Modal youtube video suggested on canvas used as basic outline for this pop up, expanded on the suit this webpage
-// modal and overlay variables 
+// Modal and overlay variables
 const addButtons = document.querySelectorAll("[data-open-modal]");
 const closeButton = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
 const overlay = document.querySelector("[data-overlay]");
 
-//add button, for opening the modal/pop up - used for the form 
+// Add button, for opening the modal/pop-up - used for the form
 addButtons.forEach((button) => {
   button.addEventListener("click", () => {
     modal.classList.add("open");
@@ -15,22 +12,26 @@ addButtons.forEach((button) => {
   });
 });
 
-//close button, for closing the modal/pop-up - used for the form 
+// Close button, for closing the modal/pop-up - used for the form
 closeButton.addEventListener("click", () => {
   modal.classList.remove("open");
   overlay.classList.remove("open");
 });
 
-//Based off week 4 tutorial - JS Objects - event listening and handling 
+// Based off week 4 tutorial - JS Objects - event listening and handling
 const form = document.getElementById('inputForm');
 const outputList = document.getElementById('outputList');
 
+// Function to remove all tasks from local storage
+function removeAllTasks() {
+  localStorage.removeItem('tasks');
+}
+
 // Add submit event listener
 form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent defult form submission behaviour
+  event.preventDefault(); // Prevent default form submission behavior
 
-
-//fetching the values when event listener is triggered
+  // Fetching the values when event listener is triggered
   addTask(
     form.elements.textType.value,
     form.elements.selectType.value,
@@ -48,44 +49,11 @@ form.addEventListener('submit', function(event) {
     },
     form.elements.motivScale.value
   );
-
-  renderTasks();
+//Form reset after the submit button is clicked 
   form.reset();
-
-  //Test log check is working 
-  //console.log(taskList);
-
-
-
-//TRYING TO GET ITEMS TO ADD TO LOCAL STORAGE!!! HAVING ISSUES GETTING NEW ITEMS IN LOCAL STORAGE 
-  
-//Checking 
-  let submitted = JSON.parse(localStorage.getItem('submitted'));
-  if (submitted == null) {
-//Set a new value for submitted in Local Storage 
-  submitted = [] //THIS INPUT PARAMETRE MAY BE WRONG FOR THIS 
-  localStorage.setItem('submitted', JSON.stringify(submitted))
-} else {
-  console.log(JSON.parse(localStorage.getItem('submitted')))
-}
-//Check to see if item already exists in local storage 
-  if (submitted.find(element => element.name === addTask.name && element.category === addTask.category && element.startTime === addTask.startTime && element.endTime === addTask.endTime && element.intensity === addTask.intensity && element.physicalFeedback === addTask.physicalFeedback && element.psychologicalFeedback === addTask.psychologicalFeedback && element.motivation === addTask.motivation)){
-      updateAdded();
-  }
 });
 
-//RETREIVING DATA FROM LOCAL STORAGE 
-var addTaskInput = localStorage.getItem('submitted');
-
-if (submitted !="undefined" || submitted != "null"){
-  document.getElementById
-} else {
-  
-}
-
-
-
-// Function to get the selected emotions from checkboxes
+// Function to get the selected emotions from checkboxes - chatGPT helped generate this code, based off my initial attempt code 
 function getSelectedEmotions() {
   const checkboxes = document.querySelectorAll('#emotionCheck input[type="checkbox"]');
   const selectedEmotions = [];
@@ -99,62 +67,76 @@ function getSelectedEmotions() {
   return selectedEmotions;
 }
 
-// Function, when task is created appending it to the HTML so it appears on the webpage 
-
+// Function, when a task is created, append it to the HTML so it appears on the webpage
 function displayTask(task) {
-    let item = document.createElement('li');
-    item.innerHTML = `
+  let item = document.createElement('li');
+  // Set the data-id attribute so items can be removed by the unique identifier from the local storage and DOM
+  item.setAttribute('data-id', task.id); 
+//Added the label for each input, then the data that matches from the addTask form 
+  item.innerHTML = `
     <div class="taskBox">
       <p class="activityName"> ${task.name}</p>
-    <div class="taskDetails">
-      <p> Category: ${task.category}</p>
-      <p> Id: ${task.id}</p>
-      <p> Date: ${task.date}</p>
-      <p> Start Time: ${task.startTime}</p>
-      <p> End Time: ${task.endTime}</p>
-      <p> Intensity: ${task.intensity}</p>
-      <p> Physical Rating: ${task.physicalFeedback.physScale}</p>
-      <p> Physical Comment: ${task.physicalFeedback.physType}</p>
-      <p> Psychological Scale:${task.psychologicalFeedback.psyScale}</p>
-      <p> Psychological Emotions:${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p>
-      <p> Other:${task.psychologicalFeedback.psyType}</p>
-      <p> Motivation: ${task.motivation}</p>
+      <div class="taskDetails">
+        <p> Category: ${task.category}</p>
+        <p> Id: ${task.id}</p>
+        <p> Date: ${task.date}</p>
+        <p> Start Time: ${task.startTime}</p>
+        <p> End Time: ${task.endTime}</p>
+        <p> Intensity: ${task.intensity}</p>
+        <p> Physical Rating: ${task.physicalFeedback.physScale}</p>
+        <p> Physical Comment: ${task.physicalFeedback.physType}</p>
+        <p> Psychological Scale: ${task.psychologicalFeedback.psyScale}</p>
+        <p> Psychological Emotions: ${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p>
+        <p> Other: ${task.psychologicalFeedback.psyType}</p>
+        <p> Motivation: ${task.motivation}</p>
       </div>
-      </div>`;
-    outputList.appendChild(item);
+    </div>`;
 
-//Function Delete button based off week 4 scrimba tutorial 
+// item element represents each and appends to the submitted task in the outputList
+  outputList.appendChild(item);
 
-    let delButton = document.createElement('button');
-    let delButtonText = document.createTextNode('Delete');
-    delButton.appendChild(delButtonText);
-    item.appendChild(delButton);
+  //console.log(addTask); 
 
-    delButton.addEventListener('click', function(event){
-      item.remove();
-      taskList.forEach(function(taskArrayElement, taskArrayIndex){
-        if (taskArrayElement.id == item.getAttribute('data-id')) {
-          taskList.splice(taskArrayIndex, 1)
-        }
-      })
-      console.log(taskList);
+//Delete button created - based off week 4 scrimba task list tutorial 
+  let delButton = document.createElement('button');
+  let delButtonText = document.createTextNode('Delete');
+  delButton.appendChild(delButtonText);
+  item.appendChild(delButton);
+
+  // Delete Button event listener - based off week 4 scrimba task list tutorial 
+  delButton.addEventListener('click', function(event) {
+    item.remove();
+    taskList = taskList.filter(function(taskItem) {
+      return taskItem.id !== task.id;
     });
-  
-// create varibable taskbox, submitted item expands to display more information 
-    const taskBox = item.querySelector('.taskBox'); 
-    const activityName = item.querySelector('.activityName');
-    const taskDetails = item.querySelector('.taskDetails');
-  
-// Event listener, when taskbox is clicked on it expands to show the rest of the data
-    taskBox.addEventListener('click', function() {
-      taskBox.classList.toggle('expanded');
+
+    // Retreiving the task array from local storage, removes specific task from the array based on the id unique identifier move the task from local storage
+    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    tasks = tasks.filter(function(taskItem) {
+      //callback function, if true will be included, if false will be excluded 
+      return taskItem.id !== task.id;
     });
-  }
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    // Check if there are no more tasks and remove all tasks from local storage, clearing it 
+    if (tasks.length === 0) {
+      removeAllTasks();
+    }
+  });
+
+  const taskBox = item.querySelector('.taskBox');
+  const activityName = item.querySelector('.activityName');
+  const taskDetails = item.querySelector('.taskDetails');
+
+  taskBox.addEventListener('click', function() {
+    taskBox.classList.toggle('expanded');
+  });
+}
 
 //Array created for taskList
 var taskList = [];
 
-//Function for addTask, directly passing through the input parametres 
+//Function for addTask, directly passing through the input parrameters 
 function addTask(name, category, startTime, endTime, intensity, physicalFeedback, psychologicalFeedback, motivation) {
   let task = {
     name,
@@ -171,20 +153,30 @@ function addTask(name, category, startTime, endTime, intensity, physicalFeedback
 
   taskList.push(task);
   displayTask(task);
+
+// Store the task in local storage
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+//Render tasks function clears existing tasks
 function renderTasks() {
-    outputList.innerHTML = '';
-    
-    taskList.forEach(function(task) {
-      displayTask(task);
-    });
-  }
-  
+  outputList.innerHTML = '';
 
-  // Sample task for testing
-addTask("Basketball Training", "Sports", "09:00", "11:00", 8, { physScale: 7, physType: "Sore muscles" }, { psyScale: 9, psyCheckboxes: ["Energized"], psyType: "" }, 10);
+//Retrieves the value of the 'tasks' key from the local storage 
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-//Confirmation taskList is running successfully in console 
-console.log(taskList);
-renderTasks();
+//Appending the tasks to the outputList 
+  tasks.forEach(function(task) {
+    displayTask(task);
+  });
+}
+
+// Check if there are any tasks stored in local storage
+if (localStorage.getItem('tasks')) {
+  renderTasks();
+}
+
+// Sample task for testing
+// addTask("Basketball Training", "Sports", "09:00", "11:00", 8, { physScale: 7, physType: "Sore muscles" }, { psyScale: 9, psyCheckboxes: ["Energized"], psyType: "" }, 10);
