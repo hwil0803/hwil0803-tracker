@@ -68,52 +68,53 @@
 <div data-modal class="modal">
 
   <div>
+    <button id="close" data-close-modal>&times;</button> <!--https://www.youtube.com/watch?v=90hKTru3nAs-->
     <h2>Add Item</h2>
     <form class="inputForm" id="inputForm">
       <!-- Start of Form -->
       <!-- User feedback Progress Bar -->
       <div class="progressbar">
-        <h4>Type Time Intensity Physical Psychological</h4>
+        <h4>Type - Time - Intensity - Physical - Psychological</h4>
       </div>
 <h5>Type</h5>
         <p>Input <strong>name</strong> of the type of activity just completed:</p>
-            <input type="text" name="textType" required="true" placeholder="Type..." onfocus="clearText()" onblur="restoreText()"/>
-        <p>Input the <strong>category</strong> of the acrtivity just competed:</p>
+            <input type="text" name="textType" required="true" placeholder="Type..."/>
+        <p>Input the <strong>category</strong> of the activity just competed:</p>
             <select class="dropdown" name="selectType" required="true"/>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-                <option value="option4">Option 4</option>
-                <option value="option5">Option 5</option>
-                <option value="option6">Option 6</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Strength">Strength</option>
+                <option value="Mobility">Mobility</option>
+                <option value="Meditation">Meditation</option>
+                <option value="Flexibility">Flexibility</option>
+                <option value="Recovery">Recovery</option>
             </select>   
 <!-- Input for Time - Page 2 -->
     <h5>Time and Duration</h5>
         <p>Start Time:</p>
-        <div class="time-input-container"> <!-- Chat GPT -->
+        <div class="time-input-container"> <!-- W3 Schools-->
             <input type="time" name=startTime id="startTime" class="time-input" required="true">
         </div>
         <p>End Time:</p>
-        <div class="time-input-container"> <!-- Chat GPT -->
+        <div class="time-input-container"> <!-- W3 schools -->
             <input type="time" name=endTime id="endTime" class="time-input" required="true">
         </div>
 <!-- Input for Intensity - Page 3 -->
     <h5>Intensity</h5>
-        <p> Rate the intensity of the session on a scale on 0-10, with 0 being very easy and a 10 being extremely difficult</p>
+        <p> Rate the intensity of the session on a scale on 0 (left) -10 (right), with 0 being very easy and a 10 being extremely difficult</p>
             <label for="intenScale">Scale: </label> 
             <br>
             <input type="range" id="intenScale" name="intenScale" required="true" min="0" max="10">
 <!-- Input for Physical Feedback -->
     <h5>Physical Feedback</h5>
-        <p>Rate how fatigued you feel physically after the session, 0 being not fatigued at all and 10 being extremely fatigued.</p>
+        <p>Rate how fatigued you feel physically after the session, 0 (left) being not fatigued at all and 10 (right) being extremely fatigued.</p>
             <label for="phyScale">Scale: </label> 
             <br>
             <input type="range" class="phyScale" name="phyScale" required="true" min="0" max="10">
         <p>If there are any injurys or sore muscels input in the text feil below e.g. rolled left ankle </p>
-        <input type="text" name="phyType" placeholder="Type..." onfocus="clearText()" onblur="restoreText()"/>
+        <input type="text" name="phyType" placeholder="Type..." />
 <!-- Input for Psychologicl Feedback-->
     <h5>Psychological Reflection</h5>
-        <p>Rate how are you are mentally feeling after the session on a scale of 0 - 10, 0 being extremely poor and 10 being excellent</p>
+        <p>Rate how are you are mentally feeling after the session on a scale of 0 (left) - 10 (right), 0 being extremely poor and 10 being excellent</p>
             <label for="psyScale">Scale: </label> 
             <br>
             <input type="range" class="psyScale" name="psyScale" required="true" min="0" max="10">
@@ -131,8 +132,9 @@
         <input type="checkbox" id="tired" name="tired" value="tired"/>
         <label for="irritable">Irritable</label>
         <input type="checkbox" id="irritable" name="irritable" value="irritable"/>
-        <label for="type">Other</label>
-        <input type="text" name="emotionType" placeholder="Type..." onfocus="clearText()" onblur="restoreText()"/>
+        <br>
+        <label for="type">Other: </label>
+        <input type="text" name="emotionType" placeholder="Type..." />
     </div>
     <div id="motivation">
         <h5>Motivation</h5>
@@ -144,16 +146,14 @@
         <input type="submit" />
       </div>
     </form>
-    <button data-close-modal><img src='.images/trash.png"'/></button>
   </div>
 </div>
 </main>
 <!-- Results Carousel -->
-<h2>Tasks</h2>
+<h2>Results</h2>
 
 <section class="logged" id="logged">
   <ul id="outputList"></ul>
-  <script src="script.js"></script>
   </script>
 </section>
 

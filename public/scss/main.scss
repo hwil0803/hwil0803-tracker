@@ -31,7 +31,7 @@ body     {
         background-color: rgb(253, 244, 241);
         padding: 5%;
         margin: 0 auto; /* Center horizontally */
-        max-width: 80%; /* Set maximum width */
+        max-width: 100%; /* Set maximum width */
         max-height: 80vh; /* Limit the modal height to 80% of viewport height */
         overflow: auto; /* Enable scrolling inside the modal */
         border-radius: 5vw;
@@ -117,6 +117,12 @@ h4{
     vertical-align: middle;
 }
 
+h5 {
+    font-size: 2.5vw;
+    -webkit-text-stroke: 0.2vw #006D77;
+    color: transparent;
+}
+
 .topnav {
     position: sticky;
     top: 0;
@@ -156,6 +162,7 @@ section p {
 
 .bluebanner button {
     position: sticky;
+    border: 0;
     background-color: rgb(235, 132, 98);
     width:25vw;
     height: 70%;
@@ -164,6 +171,12 @@ section p {
     border-radius: 2vw;
     color: #FFFF;
     font-size: 3vw; 
+    cursor: pointer;
+    box-shadow: 1px 5px 4px rgba(20, 20, 21, 0.25);
+}
+
+.bluebanner button:hover {
+    background-color: darken(rgb(235, 132, 98), 10%);
 }
 
 .progressbar {
@@ -207,10 +220,6 @@ section p {
   }
   
   
-  .taskBox .expanded {
-    /* Existing styles */
-  }
-  
   .taskBox.expanded .taskDetails {
     display: block;
  
@@ -231,6 +240,7 @@ section p {
     width: 100%; /* Adjust the width as needed */
     height: auto;
     margin-left: 10px; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
   div.progressbar h4 {
@@ -242,4 +252,177 @@ section p {
     white-space: nowrap;
     color: black;
 
+  }
+
+  #delete {
+    font-size: 2vw;
+    position:absolute;
+    right: 20vw;
+    margin: 1.5vw;
+    background-color: rgb(250, 164, 164);
+    border: solid 1 rgb(255, 74, 74);
+    border-radius: 1vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #delete:hover {
+    background-color: darken(rgb(250, 164, 164), 10%);
+  }
+
+
+
+  //Form input variables CSS Styling 
+  .time-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2vw;
+  }
+  
+  .time-input-container p {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .time-input {
+    padding: 5px;
+    border: 1px solid #1b8d71;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color:rgba(23, 112, 106, 0.323);
+  }
+  
+  #close {
+    background-color: transparent;
+    border: 0;
+    font-size: 4vw;
+    cursor: pointer;
+    position: absolute;
+    right:3vw;
+    top:3vw;
+    color: rgb(250, 94, 94);
+  }
+
+  p.activityName {
+    font-size: 3vw;
+  }
+
+  div.taskDetails p{
+    padding: 1vw;
+  }
+
+  input[type="range"] {
+    /* Set the width and height of the range input */
+    width: 100%;
+    height: 10px;
+  
+    /* Remove default styling */
+    appearance: none;
+    background: transparent;
+    outline: none;
+    border: none;
+  
+    /* Add custom track and thumb styles */
+    background-color:rgba(23, 112, 106, 0.573);
+    border-radius: 5px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color:rgba(25, 125, 119, 0.31); ;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #457675;
+}
+
+  input[type="range"]::-webkit-slider-thumb {
+    /* Style the thumb */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(23, 112, 106);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    /* Style the thumb for Firefox */
+    width: 20px;
+    height: 20px;
+    background-color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+ 
+
+p.scaleNumb {
+    letter-spacing: 4vw;
+}
+
+.dropdown {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(25, 125, 119, 0.31);
+  }
+  
+  .dropdown option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+  }
+
+  #submitBtn {
+    display: flex;
+    justify-content: center;
+    padding: 3vw;
+  }
+  
+  #submitBtn input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #5dd9b0;
+    color: #fff;
+    border: none;
+    border-radius: 2vw;
+    font-size: 3vw;
+    cursor: pointer;
+  }
+  
+
+
+  #emotionCheck {
+    margin-top: 10px;
+  }
+  
+  #emotionCheck label {
+    margin-right: 10px;
+    color: dark rgb(0, 128, 109);
+  }
+  
+  #emotionCheck input[type="checkbox"] {
+    margin-right: 5px;
+    background-color: #5dd9b0;
+
+  }
+  
+  #emotionCheck input[type="text"] {
+    padding: 5px;
+    border: 0;
+    border-radius: 4px;
+    font-size: 1vw;
+    margin-top: 10px;
+  }
+
+  #submitBtn input[type="submit"]:hover {
+    background-color: rgb(0, 128, 92);
   }

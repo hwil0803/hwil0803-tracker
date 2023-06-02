@@ -31,7 +31,7 @@ function removeAllTasks() {
 form.addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission behavior
 
-  // Fetching the values when event listener is triggered
+  // Fetching the values when event listener is triggered - Week 4 scrimba 
   addTask(
     form.elements.textType.value,
     form.elements.selectType.value,
@@ -77,18 +77,18 @@ function displayTask(task) {
     <div class="taskBox">
       <p class="activityName"> ${task.name}</p>
       <div class="taskDetails">
-        <p> Category: ${task.category}</p>
-        <p> Id: ${task.id}</p>
-        <p> Date: ${task.date}</p>
-        <p> Start Time: ${task.startTime}</p>
-        <p> End Time: ${task.endTime}</p>
-        <p> Intensity: ${task.intensity}</p>
-        <p> Physical Rating: ${task.physicalFeedback.physScale}</p>
-        <p> Physical Comment: ${task.physicalFeedback.physType}</p>
-        <p> Psychological Scale: ${task.psychologicalFeedback.psyScale}</p>
-        <p> Psychological Emotions: ${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p>
-        <p> Other: ${task.psychologicalFeedback.psyType}</p>
-        <p> Motivation: ${task.motivation}</p>
+        <p> <strong>Category:</strong> ${task.category}</p>
+        <p> <strong>Id:</strong> ${task.id}</p>
+        <p> <strong>Date:</strong> ${task.date}</p>
+        <p> <strong>Start Time</strong>: ${task.startTime}</p>
+        <p> <strong>End Time:</strong> ${task.endTime}</p>
+        <p> <strong>Intensity:</strong> ${task.intensity}</p>
+        <p> <strong>Physical Rating:</strong> ${task.physicalFeedback.physScale}</p>
+        <p> <strong>Physical Comment:</strong> ${task.physicalFeedback.physType}</p>
+        <p> <strong>Psychological Scale:</strong> ${task.psychologicalFeedback.psyScale}</p>
+        <p> <strong>Psychological Emotions:</strong>${task.psychologicalFeedback.psyCheckboxes.join(', ')}</p>
+        <p> <strong>Other:</strong> ${task.psychologicalFeedback.psyType}</p>
+        <p> <strong>Motivation: </strong>${task.motivation}</p>
       </div>
     </div>`;
 
@@ -100,6 +100,7 @@ function displayTask(task) {
 //Delete button created - based off week 4 scrimba task list tutorial 
   let delButton = document.createElement('button');
   let delButtonText = document.createTextNode('Delete');
+  delButton.id = 'delete';
   delButton.appendChild(delButtonText);
   item.appendChild(delButton);
 
