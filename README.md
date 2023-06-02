@@ -59,7 +59,13 @@ In its current state, the web page functions without an errors that I can identi
 ## UI that I would like to have implemented include: 
 
 - A multi-stage form, where the inputs are separated by category with a progress bar at the top of it. 
+
+![Carousel](/images/carousel.png)
+
 - A small icon/image to be displayed on the output list, indicating what category they selected in the form
+
+![Icon](/.images/icon.png)
+
 - Tasks scrolling in a carousel, and iconography for the delete button 
 - Numbers attached to the scale
 - A conformation pop up window before an item gets removed 
@@ -80,6 +86,6 @@ This tracking application would also be great in the form of an apple watch exte
 
 
 
-![small icon/image](image.png)
+
 
 
