@@ -1,6 +1,8 @@
 // Modal and overlay variables
 const addButtons = document.querySelectorAll("[data-open-modal]");
 const closeButton = document.querySelector("[data-close-modal]");
+
+//Youtube video from canvas suggesstion week 13
 const modal = document.querySelector("[data-modal]");
 const overlay = document.querySelector("[data-overlay]");
 
@@ -72,7 +74,7 @@ function displayTask(task) {
   let item = document.createElement('li');
   // Set the data-id attribute so items can be removed by the unique identifier from the local storage and DOM
   item.setAttribute('data-id', task.id); 
-//Added the label for each input, then the data that matches from the addTask form 
+//Added the label for each input, then the data that matches from the addTask form -> chat GPT helped format this code to my tasks 
   item.innerHTML = `
     <div class="taskBox">
       <p class="activityName"> ${task.name}</p>
