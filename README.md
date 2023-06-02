@@ -60,7 +60,7 @@ In its current state, the web page functions without an errors that I can identi
 
 - A multi-stage form, where the inputs are separated by category with a progress bar at the top of it. 
 
-![Carousel](/images/carousel.png)
+![Carousel](carousel.png)
 
 - A small icon/image to be displayed on the output list, indicating what category they selected in the form
 
